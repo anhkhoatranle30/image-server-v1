@@ -6,7 +6,7 @@ const postOne = async (req, res) => {
     const resizedBuffer = await sharp(req.file.buffer)
       .resize({
         fit: sharp.fit.contain,
-        width: 800,
+        width: 400,
       })
       .png()
       .toBuffer();
