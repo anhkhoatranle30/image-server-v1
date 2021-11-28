@@ -3,7 +3,13 @@ import Image from '../model';
 
 const postOne = async (req, res) => {
   try {
-    const resizedBuffer = await sharp(req.file.buffer).png().toBuffer();
+    const resizedBuffer = await sharp(req.file.buffer)
+      .resize({
+        fit: sharp.fit.contain,
+        width: 800,
+      })
+      .png()
+      .toBuffer();
 
     const image = new Image({
       buffer: resizedBuffer,
