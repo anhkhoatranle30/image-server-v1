@@ -6,6 +6,7 @@ const startMiddleware = (app) => {
   app.use(express.json());
   app.use(morgan('combined'));
   app.use(cors());
+  app.enable('trust proxy');
 };
 
 export default startMiddleware;
